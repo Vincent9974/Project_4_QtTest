@@ -17,9 +17,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
+    mylabel.cpp \
+    mylayout.cpp \
+    myradiobutton.cpp \
     widget.cpp
 
 HEADERS += \
+    mylabel.h \
+    mylayout.h \
+    myradiobutton.h \
     widget.h
 
 FORMS += \
