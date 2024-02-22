@@ -14,6 +14,10 @@ class FileInfo : public QWidget
 public:
     FileInfo(QWidget *parent = nullptr);
     ~FileInfo();
+    void getFileInfo(QString& fileName);
+
+private slots:
+    void on_browseFileBtn_clicked();
 
 private:
     Ui::FileInfo *ui;

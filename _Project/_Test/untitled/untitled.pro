@@ -17,13 +17,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    dialog.cpp
+    dialog.cpp \
+    templedialog.cpp
 
 HEADERS += \
-    dialog.h
+    dialog.h \
+    templedialog.h
 
 FORMS += \
-    dialog.ui
+    dialog.ui \
+    templedialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
