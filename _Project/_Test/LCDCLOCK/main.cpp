@@ -1,11 +1,12 @@
 #include "clock.h"
 
 #include <QApplication>
+#include "digitalclock.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Clock w;
+    DigitalClock w;
     w.show();
     return a.exec();
 }

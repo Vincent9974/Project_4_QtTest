@@ -15,6 +15,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void setText(const QString& str);
+
 private:
     Ui::MainWindow *ui;
 };
