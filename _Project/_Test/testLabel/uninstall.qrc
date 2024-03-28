@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>unistall.ico</file>
+    </qresource>
+</RCC>
