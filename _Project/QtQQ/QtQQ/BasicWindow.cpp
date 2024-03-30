@@ -17,7 +17,7 @@ BasicWindow::BasicWindow(QWidget *parent)
 	connect(NotifyManager::getInstance(),
 		SIGNAL(signalSkinChanged(const QColor &)),
 		this,
-		SLOT(onSignalSkinChange(const QColor &)));
+		SLOT(onSignalSkinChanged(const QColor &)));
 }
 
 BasicWindow::~BasicWindow()
