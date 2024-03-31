@@ -6,6 +6,7 @@
 
 class CustomProxyStyle : public QProxyStyle
 {
+public:
 	// 构造函数，设置父对象
 	CustomProxyStyle(QObject* parent)
 	{

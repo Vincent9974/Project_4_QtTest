@@ -3,12 +3,18 @@
 #include <QTimer>
 #include <QEvent>
 #include <QTreeWidgetItem>
+#include <QMouseEvent>
+#include <QApplication>
+#include <QDebug>
+
 #include "CCMainWindow.h"
 #include "SkinWindow.h"
 #include "SysTray.h"
 #include "NotifyManager.h"
 #include "RootConcatItem.h"
 #include "ContactItem.h"
+#include "WindowManager.h"
+#include "TalkWindowShell.h"
 
 
 // 自定义代理样式类 CCMainCustomProxyStyle，继承自 QProxyStyle
@@ -225,10 +231,11 @@ void CCMainWindow::initContactTree()
 	// 公司部门列表
 	QStringList sComDeps;
 
+	sComDeps << QString::fromLocal8Bit("公司群");
 	sComDeps << QString::fromLocal8Bit("人事部");
 	sComDeps << QString::fromLocal8Bit("市场部");
 	sComDeps << QString::fromLocal8Bit("研发部");
-	sComDeps << QString::fromLocal8Bit("销售部");
+
 
 
 	// 遍历公司部门列表并添加到根节点
@@ -282,7 +289,22 @@ void CCMainWindow::addCompanyDeps(QTreeWidgetItem* pRootGroupItem, const QString
 	ui.treeWidget->setItemWidget(pChild, 0, pContactItem);
 
 	// 将子项与其对应的部门名称映射关系存储到 m_groupMap 中
-	// m_groupMap.insert(pChild, sDeps);
+	m_groupMap.insert(pChild, sDeps);
+}
+
+void CCMainWindow::mousePressEvent(QMouseEvent * event)
+{
+	if (qApp->widgetAt(event->pos()) != ui.searchLineEdit && ui.searchLineEdit->hasFocus())
+	{
+		ui.searchLineEdit->clearFocus();
+	}
+
+	else if (qApp->widgetAt(event->pos()) != ui.lineEdit && ui.lineEdit->hasFocus())
+	{
+		ui.lineEdit->clearFocus();
+	}
+
+	BasicWindow::mousePressEvent(event);
 }
 
 
@@ -382,13 +404,35 @@ void CCMainWindow::onItemCollapsed(QTreeWidgetItem * item)
 		{
 			// 将根节点的展开状态设置为false，即折叠该项
 			prootItem->setExpanded(false);
+
 		}
 	}
 }
 
 void CCMainWindow::onItemDoubleClicked(QTreeWidgetItem * item, int column)
 {
-
+	bool bIsChild = item->data(0, Qt::UserRole).toBool();
+	if(bIsChild)
+	{
+		QString strGroup = m_groupMap.value(item);
+		if (strGroup == QString::fromLocal8Bit("公司群"))
+		{
+			WindowManager::getInstance()->addNewTalkWindow(item->data(0, Qt::UserRole + 1).toString(), COMPANY);
+			qDebug() << "Group is 公司群";
+		}
+		else if (strGroup == QString::fromLocal8Bit("人事部"))
+		{
+			WindowManager::getInstance()->addNewTalkWindow(item->data(0, Qt::UserRole + 1).toString(), PERSONELGROUP);
+		}
+		else if (strGroup == QString::fromLocal8Bit("市场部"))
+		{
+			WindowManager::getInstance()->addNewTalkWindow(item->data(0, Qt::UserRole + 1).toString(), MARKETGROUP);
+		}
+		else if (strGroup == QString::fromLocal8Bit("研发部"))
+		{
+			WindowManager::getInstance()->addNewTalkWindow(item->data(0, Qt::UserRole + 1).toString(), DEVELOPMENTGROUP);
+		}
+	}
 }
 
 

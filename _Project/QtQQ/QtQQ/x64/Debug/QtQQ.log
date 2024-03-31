@@ -1,10 +1,1 @@
-﻿  moc TalkWindowShell.h
-  TalkWindowShell.cpp
-f:\userdata\documents\githubrepo\project_4_qttest\_project\qtqq\qtqq\talkwindowshell.h(15): error C2039: “TalkWindowShell”: 不是“Ui”的成员
-  f:\userdata\documents\githubrepo\project_4_qttest\_project\qtqq\qtqq\x64\debug\uic\ui_talkwindowshell.h(100): note: 参见“Ui”的声明
-f:\userdata\documents\githubrepo\project_4_qttest\_project\qtqq\qtqq\talkwindowshell.h(15): error C2460: “TalkWindowShell::ui”: 使用正在定义的“TalkWindowShell”
-  f:\userdata\documents\githubrepo\project_4_qttest\_project\qtqq\qtqq\talkwindowshell.h(6): note: 参见“TalkWindowShell”的声明
-f:\userdata\documents\githubrepo\project_4_qttest\_project\qtqq\qtqq\talkwindowshell.cpp(5): error C2511: “TalkWindowShell::TalkWindowShell(BasicWindow *)”:“TalkWindowShell”中没有找到重载的成员函数
-  f:\userdata\documents\githubrepo\project_4_qttest\_project\qtqq\qtqq\talkwindowshell.h(6): note: 参见“TalkWindowShell”的声明
-f:\userdata\documents\githubrepo\project_4_qttest\_project\qtqq\qtqq\talkwindowshell.cpp(6): error C2550: “TalkWindowShell::{ctor}”: 构造函数初始值设定项列表只能在构造函数定义中使用
-f:\userdata\documents\githubrepo\project_4_qttest\_project\qtqq\qtqq\talkwindowshell.cpp(7): error C2671: “TalkWindowShell::{ctor}”: 静态成员函数没有“this”指针
+﻿  QtQQ.vcxproj -> F:\UserData\Documents\GitHubRepo\Project_4_QtTest\_Project\QtQQ\x64\Debug\QtQQ.exe

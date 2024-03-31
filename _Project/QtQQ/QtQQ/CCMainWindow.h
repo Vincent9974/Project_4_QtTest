@@ -27,6 +27,7 @@ private:
 	void initControl();
 	void initTimer();//初始化计时器
 	void addCompanyDeps(QTreeWidgetItem* pRootGroupItem, const QString& sDeps);
+	void mousePressEvent(QMouseEvent* event);
 
 private slots:
 	void onAppIconClicked();
@@ -38,4 +39,5 @@ private slots:
 
 private:
 	Ui::CCMainWindowClass ui;
+	QMap<QTreeWidgetItem*, QString> m_groupMap;
 };

@@ -1,25 +1,24 @@
 #pragma once
 
-#include "ui_TalkWindowShell.h"
 #include "BasicWindow.h"
+#include "EmotionWindow.h"
+#include "TalkWindow.h"
+#include "TalkWindowItem.h"
+#include <QWidget>
+#include <QMap>
+#include "ui_TalkWindowShell.h"
 
-#include <QWidget> // 包含QWidget头文件
-#include <QMap> // 包含QMap头文件
-#include "ui_TalkWindowShell.h" // 包含对话窗口外壳UI头文件
-
-// 前置声明
 class TalkWindow;
 class TalkWindowItem;
 class QListWidgetItem;
 class EmotionWindow;
 
-// 分组类型枚举
 enum GroupType {
-	COMPANY = 0, // 公司群组
-	PERSONELGROUP, // 个人群组
-	DEVELOPMENTGROUP, // 开发组
-	MARKETGROUP, // 市场组
-	PTOP // 同行之间私聊
+	COMPANY = 0, 
+	PERSONELGROUP, 
+	DEVELOPMENTGROUP, 
+	MARKETGROUP, 
+	PTOP 
 };
 
 class TalkWindowShell : public BasicWindow // 对话窗口外壳类，继承自基本窗口类
@@ -37,6 +36,7 @@ public:
 	// 设置当前窗口部件
 	void setCurrentWidget(QWidget* widget);
 
+
 	// 获取对话窗口项映射
 	const QMap<QListWidgetItem*, QWidget*>& getTalkWindowItemMap() const; // 获取对话窗口项映射
 
@@ -48,11 +48,12 @@ public slots:
 	void onEmotionBtnClicked(bool);
 
 private slots:
-	// 对话窗口项点击槽函数
+	// 左侧对话窗口项点击槽函数
 	void onTalkWindowItemClicked(QListWidgetItem* item);
 
 	// 表情项点击槽函数
 	void onEmotionItemClicked(int emotionNum);
+
 
 private:
 	// 对话窗口项映射

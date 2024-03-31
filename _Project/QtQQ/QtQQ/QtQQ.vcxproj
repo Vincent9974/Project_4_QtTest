@@ -30,6 +30,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IncludePath>$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
@@ -51,7 +52,7 @@
   </ImportGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <QtInstall>msvc2017_64</QtInstall>
-    <QtModules>core;gui;network;sql;webchannel;webengine;webenginewidgets;widgets;xml</QtModules>
+    <QtModules>core;gui;network;sql;uitools;webchannel;webengine;webenginewidgets;websockets;widgets;winextras;xml;xmlpatterns</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <QtInstall>msvc2017_64</QtInstall>
@@ -93,15 +94,22 @@
     <ClCompile Include="CommonUtils.cpp" />
     <ClCompile Include="ContactItem.cpp" />
     <ClCompile Include="CustomMenu.cpp" />
+    <ClCompile Include="EmotionLabelItem.cpp" />
+    <ClCompile Include="EmotionWindow.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MsgWebView.cpp" />
     <ClCompile Include="NotifyManager.cpp" />
     <ClCompile Include="QClickLabel.cpp" />
+    <ClCompile Include="QMsgTextEdit.cpp" />
     <ClCompile Include="RootConcatItem.cpp" />
     <ClCompile Include="SkinWindow.cpp" />
     <ClCompile Include="SysTray.cpp" />
+    <ClCompile Include="TalkWindow.cpp" />
+    <ClCompile Include="TalkWindowItem.cpp" />
     <ClCompile Include="TalkWindowShell.cpp" />
     <ClCompile Include="TitleBar.cpp" />
     <ClCompile Include="UserLogin.cpp" />
+    <ClCompile Include="WindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="CCMainWindow.h" />
@@ -109,7 +117,10 @@
   <ItemGroup>
     <QtUic Include="CCMainWindow.ui" />
     <QtUic Include="ContactItem.ui" />
+    <QtUic Include="EmotionWindow.ui" />
     <QtUic Include="SkinWindow.ui" />
+    <QtUic Include="TalkWindow.ui" />
+    <QtUic Include="TalkWindowItem.ui" />
     <QtUic Include="TalkWindowShell.ui" />
     <QtUic Include="UserLogin.ui" />
   </ItemGroup>
@@ -127,6 +138,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonUtils.h" />
+    <QtMoc Include="MsgWebView.h" />
+    <QtMoc Include="QMsgTextEdit.h" />
+    <QtMoc Include="WindowManager.h" />
+    <QtMoc Include="TalkWindow.h" />
+    <QtMoc Include="TalkWindowItem.h" />
+    <QtMoc Include="EmotionLabelItem.h" />
+    <QtMoc Include="EmotionWindow.h" />
     <QtMoc Include="TalkWindowShell.h" />
     <QtMoc Include="ContactItem.h" />
     <QtMoc Include="RootConcatItem.h" />
