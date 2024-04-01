@@ -31,7 +31,8 @@ TalkWindow::~TalkWindow()
 
 void TalkWindow::addEmotionImage(int emotionNum)
 {
-
+	ui.textEdit->setFocus();
+	ui.textEdit->addEmotionUrl(emotionNum);
 }
 
 void TalkWindow::setWindowName(const QString & name)
@@ -311,6 +312,58 @@ void TalkWindow::onItemDoubleClicked(QTreeWidgetItem* item, int column)
 		WindowManager::getInstance()->addNewTalkWindow(itemId, PTOP, strPeopleName);
 	}
 }
+
+void TalkWindow::onSendBtnClicked(bool)
+{
+	// 检查消息是否为空，为空则提示用户并返回
+	if (ui.textEdit->toPlainText().isEmpty())
+	{
+		// 显示提示信息，位置在 (630, 660) 处，持续时间为 2000 毫秒
+		QToolTip::showText(this->mapToGlobal(QPoint(630, 660)),
+			QString::fromLocal8Bit("发送消息内容不能为空"),
+			this, QRect(0, 0, 120, 100), 2000);
+		return;
+	}
+
+	// 将纯文本转换为 HTML 格式
+	QString& html = ui.textEdit->document()->toHtml();
+
+	// 如果 HTML 中不包含图片和<span>标签，则添加字体样式
+	if (!html.contains(".png") && !html.contains("</span>"))
+	{
+		QString fontHtml;
+		QString text = ui.textEdit->toPlainText();
+		QFile file(":/Resources/MainWindow/MsgHtml/msgFont.txt");
+
+		if (file.open(QIODevice::ReadOnly))
+		{
+			fontHtml = file.readAll();
+			// 将 HTML 文件中的 %1 占位符替换为消息文本
+			fontHtml.replace("%1", text);
+			file.close();
+		}
+		else
+		{
+			// 如果文件打开失败，则弹出消息框提示用户
+			QMessageBox::information(this, QString::fromLocal8Bit("提示"),
+				QString::fromLocal8Bit("文件 msgFont.txt 不存在"));
+			return;
+		}
+
+		// 如果 HTML 中不包含字体样式代码，则替换文本为带有字体样式的 HTML
+		if (!html.contains(fontHtml))
+		{
+			html.replace(text, fontHtml);
+		}
+	}
+
+	// 清空文本编辑框并删除所有表情图片
+	ui.textEdit->clear();
+	ui.textEdit->deleteAllEmotionImage();
+
+	ui.msgWidget->appendMsg(html); //收信息窗口添加信息
+}
+
 
 
 

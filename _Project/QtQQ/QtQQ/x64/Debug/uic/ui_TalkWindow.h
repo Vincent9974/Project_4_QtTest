@@ -23,7 +23,8 @@
 #include <QtWidgets/QTreeWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
-#include "qmsgtextedit.h"
+#include <msgwebview.h>
+#include <qmsgtextedit.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -52,7 +53,7 @@ public:
     QVBoxLayout *verticalLayout_4;
     QFrame *frameWidget;
     QVBoxLayout *verticalLayout_3;
-    QWidget *msgWidget;
+    MsgWebView *msgWidget;
     QWidget *bottomWidget;
     QVBoxLayout *verticalLayout_2;
     QWidget *moduleWidget;
@@ -265,7 +266,7 @@ public:
         verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(0, 1, 0, 1);
-        msgWidget = new QWidget(frameWidget);
+        msgWidget = new MsgWebView(frameWidget);
         msgWidget->setObjectName(QString::fromUtf8("msgWidget"));
 
         verticalLayout_3->addWidget(msgWidget);

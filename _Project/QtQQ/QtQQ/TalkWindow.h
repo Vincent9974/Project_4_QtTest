@@ -29,7 +29,7 @@ private:
 	void addPeopInfo(QTreeWidgetItem* pRootGroupItem);  // 添加人员信息的私有方法，接受 QTreeWidgetItem 指针参数
 
 private slots:
-	//void onSendBtnClicked(bool);  // 发送按钮点击的槽函数，接受布尔型参数
+	void onSendBtnClicked(bool);  // 发送按钮点击的槽函数，接受布尔型参数
 	void onItemDoubleClicked(QTreeWidgetItem* item, int column);  // 项目双击的槽函数，接受 QTreeWidgetItem 指针和整数列参数
 
 private:
