@@ -1,4 +1,0 @@
-﻿  TalkWindow.cpp
-f:\userdata\documents\githubrepo\project_4_qttest\_project\qtqq\qtqq\talkwindow.h(8): warning C4091: “extern ”: 没有声明变量时忽略“GroupType”的左侧
-f:\userdata\documents\githubrepo\project_4_qttest\_project\qtqq\qtqq\talkwindow.cpp(272): warning C4311: “类型强制转换”: 从“QTreeWidgetItem *”到“int”的指针截断
-  QtQQ.vcxproj -> F:\UserData\Documents\GitHubRepo\Project_4_QtTest\_Project\QtQQ\x64\Debug\QtQQ.exe
