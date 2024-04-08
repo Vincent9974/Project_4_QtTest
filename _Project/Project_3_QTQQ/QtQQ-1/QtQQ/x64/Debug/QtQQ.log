@@ -1,0 +1,56 @@
+﻿  CCMainWindow.cpp
+  ContactItem.cpp
+  EmotionWindow.cpp
+  MsgWebView.cpp
+  SkinWindow.cpp
+  TalkWindow.cpp
+  TalkWindowItem.cpp
+  TalkWindowShell.cpp
+  UserLogin.cpp
+  WindowManager.cpp
+  main.cpp
+F:\UserData\Documents\GitHubRepo\Project_4_QtTest\_Project\Project_3_QTQQ\QtQQ\TalkWindow.h(8,22): warning C4091: “extern ”: 没有声明变量时忽略“GroupType”的左侧
+  (编译源文件“MsgWebView.cpp”)
+  
+F:\UserData\Documents\GitHubRepo\Project_4_QtTest\_Project\Project_3_QTQQ\QtQQ\TalkWindow.h(8,22): warning C4091: “extern ”: 没有声明变量时忽略“GroupType”的左侧
+  (编译源文件“WindowManager.cpp”)
+  
+F:\UserData\Documents\GitHubRepo\Project_4_QtTest\_Project\Project_3_QTQQ\QtQQ\TalkWindow.h(8,22): warning C4091: “extern ”: 没有声明变量时忽略“GroupType”的左侧
+  (编译源文件“TalkWindowShell.cpp”)
+  
+F:\UserData\Documents\GitHubRepo\Project_4_QtTest\_Project\Project_3_QTQQ\QtQQ\TalkWindow.h(8,22): warning C4091: “extern ”: 没有声明变量时忽略“GroupType”的左侧
+  (编译源文件“TalkWindow.cpp”)
+  
+F:\UserData\Documents\GitHubRepo\Project_4_QtTest\_Project\Project_3_QTQQ\QtQQ\TalkWindow.h(8,22): warning C4091: “extern ”: 没有声明变量时忽略“GroupType”的左侧
+  (编译源文件“CCMainWindow.cpp”)
+  
+  moc_BasicWindow.cpp
+  moc_CCMainWindow.cpp
+  moc_ContactItem.cpp
+  moc_CustomMenu.cpp
+  moc_EmotionLabelItem.cpp
+  moc_EmotionWindow.cpp
+  moc_MsgWebView.cpp
+  moc_NotifyManager.cpp
+  moc_QClickLabel.cpp
+  moc_QMsgTextEdit.cpp
+  moc_RootConcatItem.cpp
+  moc_SkinWindow.cpp
+  moc_SysTray.cpp
+  moc_TalkWindow.cpp
+  moc_TalkWindowItem.cpp
+  moc_TalkWindowShell.cpp
+  moc_TitleBar.cpp
+  moc_UserLogin.cpp
+  moc_WindowManager.cpp
+  qrc_CCMainWindow.cpp
+F:\UserData\Documents\GitHubRepo\Project_4_QtTest\_Project\Project_3_QTQQ\QtQQ\TalkWindow.h(8,22): warning C4091: “extern ”: 没有声明变量时忽略“GroupType”的左侧
+  (编译源文件“GeneratedFiles/Debug/moc_TalkWindow.cpp”)
+  
+F:\UserData\Documents\GitHubRepo\Project_4_QtTest\_Project\Project_3_QTQQ\QtQQ\TalkWindow.h(8,22): warning C4091: “extern ”: 没有声明变量时忽略“GroupType”的左侧
+  (编译源文件“GeneratedFiles/Debug/moc_TalkWindowShell.cpp”)
+  
+F:\UserData\Documents\GitHubRepo\Project_4_QtTest\_Project\Project_3_QTQQ\QtQQ\TalkWindow.h(8,22): warning C4091: “extern ”: 没有声明变量时忽略“GroupType”的左侧
+  (编译源文件“GeneratedFiles/Debug/moc_WindowManager.cpp”)
+  
+C:\Users\Vincent\AppData\Local\QtMsBuild\qt_globals.targets(765,7): error MSB4184: 无法计算表达式“[System.IO.File]::ReadAllText(C:\Users\Vincent\AppData\Local\QtMsBuild\qt.natvis.xml)”。未能找到文件“C:\Users\Vincent\AppData\Local\QtMsBuild\qt.natvis.xml”。
