@@ -1,15 +1,26 @@
-#ifndef WIDGET_H
-#define WIDGET_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
-#include <QWidget>
+#include <QMainWindow>
+#include <QComboBox>
+#include <QLabel>
 
-class Widget : public QWidget
+namespace Ui {
+class MainWindow;
+}
+
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    Widget(QWidget *parent = 0);
-    ~Widget();
+    explicit MainWindow(QWidget *parent = 0);
+    ~MainWindow();
+
+private:
+    QComboBox* m_languageBox; //多语言选择
+    QLabel* m_nameLabel;
+    QLabel* m_signLabel;
 };
 
-#endif // WIDGET_H
+#endif // MAINWINDOW_H

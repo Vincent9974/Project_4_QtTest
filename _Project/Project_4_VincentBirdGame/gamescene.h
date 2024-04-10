@@ -2,11 +2,17 @@
 #define GAMESECENE_H
 
 #include <QObject>
+#include <QGraphicsScene>
+#include "gamescene.h"
 
-class GameSecene : public QGraphicsScene
+class GameScene : public QGraphicsScene
 {
+    Q_OBJECT
+
+
 public:
-    GameSecene();
+    GameScene(QObject* parent, const QRectF &sceneRect);
+    ~GameScene();
 };
 
 #endif // GAMESECENE_H

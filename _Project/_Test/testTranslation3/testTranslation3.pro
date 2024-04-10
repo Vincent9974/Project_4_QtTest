@@ -29,3 +29,5 @@ SOURCES += \
 
 HEADERS += \
         widget.h
+
+TRANSLATIONS = lang_en.ts

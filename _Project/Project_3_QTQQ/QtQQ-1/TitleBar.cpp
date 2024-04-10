@@ -235,6 +235,8 @@ void TitleBar::loadStyleSheet(const QString& sheetName)
 	}
 }
 
+
+
 void TitleBar::onButtonMinClicked()
 {
 	emit signalButtonCloseClicked();

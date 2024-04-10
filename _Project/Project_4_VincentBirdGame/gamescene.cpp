@@ -1,6 +1,14 @@
-#include "gamesecene.h"
+#include "gamescene.h"
 
-GameSecene::GameSecene()
+GameScene::GameScene(QObject *parent, const QRectF &sceneRect)
+    :QGraphicsScene(sceneRect, parent)
 {
 
 }
+
+GameScene::~GameScene()
+{
+
+}
+
+

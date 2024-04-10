@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,10 +25,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        gamewindow.cpp
+        gamewindow.cpp \
+    gamescene.cpp \
+    birditem.cpp \
+    buttonitem.cpp \
+    roaditem.cpp \
+    pipeitem.cpp
 
 HEADERS += \
-        gamewindow.h
+        gamewindow.h \
+    gamescene.h \
+    birditem.h \
+    buttonitem.h \
+    roaditem.h \
+    pipeitem.h
 
 FORMS += \
         gamewindow.ui
+
+RESOURCES += \
+    birdsource.qrc

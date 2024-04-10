@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QComboBox>
+#include <QLabel>
 
 namespace Ui {
 class MainWindow;
@@ -16,7 +18,9 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+    QComboBox* m_languageBox; //多语言选择
+    QLabel* m_nameLabel;
+    QLabel* m_signLabel;
 };
 
 #endif // MAINWINDOW_H
