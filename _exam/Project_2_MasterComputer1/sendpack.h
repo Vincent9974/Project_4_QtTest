@@ -11,10 +11,10 @@ class SendPack : public QThread
 public:
     SendPack(QSerialPort* port);
     void run() override;
+    bool makePack(char cmd, char parm, char data[], char *pack);
 
 private:
     QSerialPort* serialPort;
-    bool makePack(char cmd, char parm, char data[], char *pack);
 };
 
 #endif // SENDPACK_H

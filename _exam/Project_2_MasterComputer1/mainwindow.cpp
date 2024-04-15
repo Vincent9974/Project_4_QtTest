@@ -1,11 +1,15 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "protocal.h"
+#include "neddle.h"
+#include <thread>
 
 #include <QMessageBox>
 #include <QProgressBar>
 #include <QTimer>
 #include <QDateTime>
+#include <QGraphicsScene>
+#include <QDebug>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -19,6 +23,48 @@ MainWindow::MainWindow(QWidget *parent) :
     timer->start(1000);
     connect(timer, &QTimer::timeout,
             this, &MainWindow::updateTime);
+
+    ui->pushButtonAdd->setStyleSheet(
+                "QPushButton{"
+                     "background-image:url(:res/add_normal.png);"
+                     "padding:0;"
+                     "border:0;"
+                     "background-position:Center;}"
+                "QPushButton:pressed{"
+                     "background-image:url(:res/add_press.png);}"
+                );
+
+    ui->pushButtonSub->setStyleSheet(
+                "QPushButton{"
+                     "background-image:url(:res/sub_normal.png);"
+                     "padding:0;"
+                     "border:0;"
+                     "background-position:Center;}"
+                "QPushButton:pressed{"
+                     "background-image:url(:res/sub_press.png);}"
+                );
+
+    //创建一个图像场景
+    QGraphicsScene* scene = new QGraphicsScene();
+    //设置场景的位置区域
+    scene->setSceneRect(ui->graphicsView->rect());
+
+    m_neddle = scene->addWidget(new neddle);
+
+    //设置指针窗口在场景中的位置
+    m_neddle->setPos(100,  103);
+    m_neddle->setTransformOriginPoint(4, 0); //旋转原点在指针图片内部的(4,0)位置
+
+    pixNormalStaus =  QPixmap(":/res/normal.png");
+    pixWarningStatus =  QPixmap(":/res/warning.png");
+
+    ui->graphicsView->setScene(scene);
+
+    connect(ui->pushButtonAdd, &QPushButton::clicked,
+            this, &MainWindow::on_pushButton_add_clicked);
+    connect(ui->pushButtonSub, &QPushButton::clicked,
+            this, &MainWindow::on_pushButtonSub_clicked);
+
 
 }
 
@@ -34,6 +80,20 @@ void MainWindow::updateTime()
 
     // 设置标签的文本为当前时间
     ui->label_time->setText(time);
+}
+
+void MainWindow::setNeedleValue(double value)
+{
+    if(value < 0) value = 0;
+    else if(value > 120) value = 120;
+
+    double rotateAngle = (double)((310.0 - 54.0) / 120) * value + 54.00;
+
+    //微调
+    if(value < 40) rotateAngle += 1;
+    else if(40 < value) rotateAngle -= 2;
+
+    m_neddle->setRotation(rotateAngle);
 }
 
 void MainWindow::monitor()
@@ -110,8 +170,21 @@ void MainWindow::updateData(char cmd, char param, int data)
 
         };
         if(param < 1 || param > 5) break;
+        bool warning = data >= pressThreshold;
+        pressureStatus[param - 1] = warning;
+
         QProgressBar* bar = (QProgressBar*)widgets[param - 1][0];
         bar->setValue(data);
+
+
+        // 报警,则设置 QProgressBar 的颜色
+        if (data > MAX_PRESSURE) {
+            // 设置红色
+            bar->setStyleSheet("QProgressBar::chunk { background-color: red; }");
+        } else {
+            bar->setStyleSheet("");
+        }
+
         QLabel* label = (QLabel*) widgets[param -1][1];
         label->setText(QString::number(data));
     }
@@ -123,5 +196,39 @@ void MainWindow::updateData(char cmd, char param, int data)
         break;
     }
 
+    case DONG_LI_GAN_SU_DU_SET_RSP:
+    {
+        setNeedleValue(data);
+        break;
+    }
+    }
+
+    updateWarningLabel();
+}
+
+void MainWindow::updateWarningLabel()
+{
+    if (pressureStatus[0] || pressureStatus[1] || pressureStatus[2] ||
+        pressureStatus[3] || pressureStatus[4] || pressureStatus[5]) {
+        ui->label_status->setPixmap(pixWarningStatus);
+    } else {
+        ui->label_status->setPixmap(pixNormalStaus);
     }
 }
+
+void MainWindow::on_pushButton_add_clicked()
+{
+//    char pack[9] = {0,};
+//    senderThread->makePack(DONG_LI_GAN_SU_DU_SET_REQ, 0xF0, 0, pack);
+//    int ret = serialPort->write(pack, sizeof(pack));
+//    qDebug() << "send: " << ret << " bytes.";
+}
+
+void MainWindow::on_pushButtonSub_clicked()
+{
+//    char pack[9] = {0,};
+//    senderThread->makePack(DONG_LI_GAN_SU_DU_SET_REQ, 0x0F, 0, pack);
+//    int ret = serialPort->write(pack, sizeof(pack));
+//    qDebug() << "send: " << ret << " bytes.";
+}
+

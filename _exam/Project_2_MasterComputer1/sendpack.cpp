@@ -1,6 +1,11 @@
 #include "sendpack.h"
 #include "protocal.h"
 #include <QDebug>
+#include <queue>
+#include <mutex>
+#include <condition_variable>
+
+
 
 SendPack::SendPack(QSerialPort* port)
 {
@@ -9,6 +14,11 @@ SendPack::SendPack(QSerialPort* port)
 
 void SendPack::run()
 {
+    // 添加数据包队列、互斥锁和条件变量
+    std::queue<std::pair<char, char>> sendQueue;
+    std::mutex queueMutex;
+    std::condition_variable queueCondition;
+
     unsigned char cmdAndParm[][2]
     {
         {ZHU_JI_WEN_DU_REQ, 0},
@@ -23,7 +33,8 @@ void SendPack::run()
         {YA_LI_CHANG_REQ, 4},
         {YA_LI_CHANG_REQ, 5},
         {JI_XIE_BI_REQ, 0},
-
+        {DONG_LI_GAN_SU_DU_SET_REQ, 0XF0},
+        {DONG_LI_GAN_SU_DU_SET_RSP, 0X0F}
     };
 
     char pack[9];
@@ -31,6 +42,24 @@ void SendPack::run()
     //发包
     int cmdCount = sizeof(cmdAndParm) / sizeof(cmdAndParm[0]);
     while (1) {
+
+//        // 使用条件变量等待队列中有数据包
+//        std::unique_lock<std::mutex> lock(queueMutex);
+//        queueCondition.wait(lock, [] { return !sendQueue.empty(); });
+
+//        // 从队列中取出数据包
+//        auto request = sendQueue.front();
+//        sendQueue.pop();
+
+//        // 发送数据包
+//        makePack(request.first, request.second, data, pack);
+//        int ret = serialPort->write(pack, sizeof(pack));
+//        qDebug() << "send:" << ret << " bytes";
+//        serialPort->waitForBytesWritten(500);
+//        QThread::msleep(300);
+
+
+
         for(int i = 0; i<cmdCount; i++)
         {
             makePack(cmdAndParm[i][0],

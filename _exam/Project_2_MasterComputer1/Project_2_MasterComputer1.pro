@@ -27,13 +27,15 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     receivepack.cpp \
-    sendpack.cpp
+    sendpack.cpp \
+    neddle.cpp
 
 HEADERS += \
     mainwindow.h \
     receivepack.h \
     sendpack.h \
-    protocal.h
+    protocal.h \
+    neddle.h
 
 FORMS += \
     mainwindow.ui

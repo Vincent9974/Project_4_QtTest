@@ -13,10 +13,12 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QProgressBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -58,6 +60,10 @@ public:
     QProgressBar *progressBar_tank5;
     QProgressBar *progressBar_arm;
     QLabel *label_time;
+    QPushButton *pushButtonAdd;
+    QPushButton *pushButtonSub;
+    QGraphicsView *graphicsView;
+    QLabel *label_status;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -275,6 +281,23 @@ public:
         label_time->setStyleSheet(QString::fromUtf8("font: 12pt \"\351\273\221\344\275\223\";\n"
 "color: white;"));
         label_time->setTextFormat(Qt::AutoText);
+        pushButtonAdd = new QPushButton(centralWidget);
+        pushButtonAdd->setObjectName(QStringLiteral("pushButtonAdd"));
+        pushButtonAdd->setGeometry(QRect(990, 730, 125, 34));
+        pushButtonAdd->setStyleSheet(QStringLiteral(""));
+        pushButtonSub = new QPushButton(centralWidget);
+        pushButtonSub->setObjectName(QStringLiteral("pushButtonSub"));
+        pushButtonSub->setGeometry(QRect(990, 790, 125, 34));
+        graphicsView = new QGraphicsView(centralWidget);
+        graphicsView->setObjectName(QStringLiteral("graphicsView"));
+        graphicsView->setGeometry(QRect(950, 470, 211, 211));
+        graphicsView->setStyleSheet(QLatin1String("background: rgba(0,0,0,0);\n"
+""));
+        graphicsView->setFrameShape(QFrame::NoFrame);
+        label_status = new QLabel(centralWidget);
+        label_status->setObjectName(QStringLiteral("label_status"));
+        label_status->setGeometry(QRect(400, 90, 395, 106));
+        label_status->setPixmap(QPixmap(QString::fromUtf8(":/res/warning.png")));
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
@@ -312,6 +335,9 @@ public:
         label_tank5->setText(QApplication::translate("MainWindow", "000 Pa", Q_NULLPTR));
         label_arm->setText(QApplication::translate("MainWindow", "000 Pa", Q_NULLPTR));
         label_time->setText(QApplication::translate("MainWindow", "2023-04-14 00:00:00", Q_NULLPTR));
+        pushButtonAdd->setText(QString());
+        pushButtonSub->setText(QString());
+        label_status->setText(QString());
     } // retranslateUi
 
 };
