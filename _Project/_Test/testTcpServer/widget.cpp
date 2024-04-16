@@ -41,7 +41,7 @@ void Widget::onNewConnect()
             this, &Widget::onReadMessage);
 }
 
-void Widget::onSendMessage()
+void Widget:: onSendMessage()
 {
     QString str = "你好, 客户端";
 
