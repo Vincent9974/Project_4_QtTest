@@ -96,7 +96,7 @@ void Server::handleClient(QTcpSocket *client)
     };
 
     if (requestToFileMap.contains(request)) {
-        qDebug() << "Load success:";
+        qDebug() << "Received Load Request:";
 
         // 获取对应的文件路径
         QString filePath = QDir::currentPath() + requestToFileMap[request];
