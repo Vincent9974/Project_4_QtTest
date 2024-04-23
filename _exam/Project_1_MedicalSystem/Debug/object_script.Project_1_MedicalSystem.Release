@@ -1,0 +1,16 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\newproject.o
+./release\selectmodel.o
+./release\remakedialog.o
+./release\packupdialog.o
+./release\picutrewidget.o
+./release\qrc_res.o
+./release\moc_mainwindow.o
+./release\moc_newproject.o
+./release\moc_selectmodel.o
+./release\moc_remakedialog.o
+./release\moc_packupdialog.o
+./release\moc_picutrewidget.o
+);

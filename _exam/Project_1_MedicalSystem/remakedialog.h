@@ -2,6 +2,7 @@
 #define REMAKEDIALOG_H
 
 #include <QDialog>
+#include <QTimer>
 
 namespace Ui {
 class remakeDialog;
@@ -15,8 +16,17 @@ public:
     explicit remakeDialog(QWidget *parent = 0);
     ~remakeDialog();
 
+protected:
+    void accept() override;
+
+private slots:
+    void on_toolButton_clicked();
+    void updateProgressBar();
+    void ProgressBarStart();
+
 private:
     Ui::remakeDialog *ui;
+    QTimer *m_timer;
 };
 
 #endif // REMAKEDIALOG_H

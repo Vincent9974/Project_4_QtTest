@@ -1,2 +1,13 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/">
+        <file>res/iconNew.jpg</file>
+        <file>res/iconWindow.jpg</file>
+        <file>res/iconOpen.jpg</file>
+        <file>res/delete.jpg</file>
+        <file>res/EXIT.jpg</file>
+        <file>res/other.jpg</file>
+        <file>res/model.jpg</file>
+        <file>res/packUp.jpg</file>
+        <file>res/remake.jpg</file>
+    </qresource>
+</RCC>

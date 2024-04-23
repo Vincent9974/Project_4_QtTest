@@ -25,10 +25,28 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    newproject.cpp \
+    selectmodel.cpp \
+    remakedialog.cpp \
+    packupdialog.cpp \
+    picutrewidget.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    newproject.h \
+    selectmodel.h \
+    remakedialog.h \
+    packupdialog.h \
+    picutrewidget.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    newproject.ui \
+    selectmodel.ui \
+    remakedialog.ui \
+    packupdialog.ui \
+    picutrewidget.ui
+
+RESOURCES += \
+    res.qrc

@@ -1,0 +1,16 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\newproject.o
+./debug\selectmodel.o
+./debug\remakedialog.o
+./debug\packupdialog.o
+./debug\picutrewidget.o
+./debug\qrc_res.o
+./debug\moc_mainwindow.o
+./debug\moc_newproject.o
+./debug\moc_selectmodel.o
+./debug\moc_remakedialog.o
+./debug\moc_packupdialog.o
+./debug\moc_picutrewidget.o
+);
