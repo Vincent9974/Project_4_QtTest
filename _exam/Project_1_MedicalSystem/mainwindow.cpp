@@ -174,7 +174,7 @@ void MainWindow::loadImagesFromFloder(const QString &folderPath)
         col++;
         if (col == 5) { // 每排显示5个部件
             col = 0;
-            row  +=1;
+            row  +=1
         }
     }
 
