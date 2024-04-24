@@ -9,6 +9,7 @@
 #include "picutrewidget.h"
 #include <QVBoxLayout>
 #include <QStackedWidget>
+#include "choosepictodata.h"
 
 namespace Ui {
 class MainWindow;
@@ -32,6 +33,7 @@ private slots:
     void hadleRemakeAction();
     void hadlePackUpAction();
     void handlePictureView();
+    void handlePic2Data();
 
 private:
     Ui::MainWindow *ui;
@@ -44,6 +46,7 @@ private:
     QVBoxLayout *m_layout;
     QStackedWidget* m_stackedWidget;
     QString m_imageFilePath;
+    choosePicToData *m_choosePic;
 };
 
 #endif // MAINWINDOW_H

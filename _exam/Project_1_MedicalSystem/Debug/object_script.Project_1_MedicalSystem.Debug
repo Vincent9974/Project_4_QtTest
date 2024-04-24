@@ -6,6 +6,7 @@ INPUT(
 ./debug\remakedialog.o
 ./debug\packupdialog.o
 ./debug\picutrewidget.o
+./debug\choosepictodata.o
 ./debug\qrc_res.o
 ./debug\moc_mainwindow.o
 ./debug\moc_newproject.o
@@ -13,4 +14,5 @@ INPUT(
 ./debug\moc_remakedialog.o
 ./debug\moc_packupdialog.o
 ./debug\moc_picutrewidget.o
+./debug\moc_choosepictodata.o
 );

@@ -27,13 +27,17 @@ MainWindow::MainWindow(QWidget *parent) :
 
     initGrid();
 
-     np = new newProject(this);
+    np = new newProject(this);
+    m_choosePic = new choosePicToData(this);
 
     ui->actionExit->setShortcut(QKeySequence(Qt::ALT + Qt::Key_F4));
     ui->toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 
     connect(np, &newProject::projectEntered,
             this, &MainWindow::handleProjectEntered);
+
+    connect(ui->actionOpen, &QAction::triggered,
+            this, &MainWindow::handlePic2Data);
 
     m_remakeDialog = new remakeDialog(this);
     connect(ui->actionRemake, &QAction::triggered,
@@ -174,7 +178,7 @@ void MainWindow::loadImagesFromFloder(const QString &folderPath)
         col++;
         if (col == 5) { // 每排显示5个部件
             col = 0;
-            row  +=1
+            row  +=1;
         }
     }
 
@@ -196,6 +200,11 @@ void MainWindow::handlePictureView()
 {
     initPictureList();
     m_stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::handlePic2Data()
+{
+    m_choosePic->show();
 }
 
 

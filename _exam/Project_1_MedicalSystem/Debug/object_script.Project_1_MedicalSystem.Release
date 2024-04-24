@@ -6,6 +6,7 @@ INPUT(
 ./release\remakedialog.o
 ./release\packupdialog.o
 ./release\picutrewidget.o
+./release\choosepictodata.o
 ./release\qrc_res.o
 ./release\moc_mainwindow.o
 ./release\moc_newproject.o
@@ -13,4 +14,5 @@ INPUT(
 ./release\moc_remakedialog.o
 ./release\moc_packupdialog.o
 ./release\moc_picutrewidget.o
+./release\moc_choosepictodata.o
 );

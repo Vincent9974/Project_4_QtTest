@@ -30,7 +30,8 @@ SOURCES += \
     selectmodel.cpp \
     remakedialog.cpp \
     packupdialog.cpp \
-    picutrewidget.cpp
+    picutrewidget.cpp \
+    choosepictodata.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,7 +39,8 @@ HEADERS += \
     selectmodel.h \
     remakedialog.h \
     packupdialog.h \
-    picutrewidget.h
+    picutrewidget.h \
+    choosepictodata.h
 
 FORMS += \
         mainwindow.ui \
@@ -46,7 +48,8 @@ FORMS += \
     selectmodel.ui \
     remakedialog.ui \
     packupdialog.ui \
-    picutrewidget.ui
+    picutrewidget.ui \
+    choosepictodata.ui
 
 RESOURCES += \
     res.qrc
